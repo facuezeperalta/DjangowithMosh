@@ -31,11 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.admin', #manage date.
+    'django.contrib.auth', #auth users.
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.sessions',#legacy is not use anymore.
+    'django.contrib.messages', #one time notification to the user.
     'django.contrib.staticfiles',
 ]
 
