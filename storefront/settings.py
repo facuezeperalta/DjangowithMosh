@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',#legacy is not use anymore.
     'django.contrib.messages', #one time notification to the user.
     'django.contrib.staticfiles',
-    'playground'
+    'playground',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     
 ]
 
 ROOT_URLCONF = 'storefront.urls'
