@@ -18,7 +18,7 @@ class Product(models.Model):
     stock = models.IntegerField()
     last_update =models.DateTimeField(auto_now=True) # cada vez que acutalicemos el objeto se guaradará de manera automática
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT) #Protejemos en el caso de borrar una collection no perdemos todos los productos.
-    promtions = models.ManyToManyField(Promotion, ) #now django creates the reverse relationship in the Promotion class. realted  related_name='products' changes the deafult value of the name of the field of the promotion class. Its better to keep it consistent in all the project to keep it clean.
+    promotions = models.ManyToManyField(Promotion) #now django creates the reverse relationship in the Promotion class. realted  related_name='products' changes the deafult value of the name of the field of the promotion class. Its better to keep it consistent in all the project to keep it clean.
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
