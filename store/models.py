@@ -5,11 +5,13 @@ class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
     #in many to many relationship we need to define the relationship in the product that shows to the user and Django will automatically shows the discount to the user and also make the relationship between the producto class and the promotion class.
-    #product_set returns all the productos that a particular promotion is applied to.
+    #product_set returns all the productos that a particular promotion is applied to. It's the default name for this.
 
 class Collection(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
+    featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True,related_name='+')# + sign indicates Django to not create the reverse relationship.
+
     
 class Product(models.Model):
     title = models.CharField(max_length=255,null=False)
@@ -19,6 +21,7 @@ class Product(models.Model):
     last_update =models.DateTimeField(auto_now=True) # cada vez que acutalicemos el objeto se guaradará de manera automática
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT) #Protejemos en el caso de borrar una collection no perdemos todos los productos.
     promotions = models.ManyToManyField(Promotion) #now django creates the reverse relationship in the Promotion class. realted  related_name='products' changes the deafult value of the name of the field of the promotion class. Its better to keep it consistent in all the project to keep it clean.
+
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
