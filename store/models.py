@@ -15,8 +15,9 @@ class Collection(models.Model):
     
 class Product(models.Model):
     title = models.CharField(max_length=255,null=False)
+    slug = models.SlugField()
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2) #arguments required ALWAYS
+    unit_price = models.DecimalField(max_digits=6, decimal_places=2) #arguments required ALWAYS
     stock = models.IntegerField()
     last_update =models.DateTimeField(auto_now=True) # cada vez que acutalicemos el objeto se guaradará de manera automática
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT) #Protejemos en el caso de borrar una collection no perdemos todos los productos.
