@@ -9,7 +9,7 @@ class Promotion(models.Model):
 
 class Collection(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(null=True)
     featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True,related_name='+')# + sign indicates Django to not create the reverse relationship.
 
     
