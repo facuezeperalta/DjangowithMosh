@@ -35,13 +35,15 @@ class Customer(models.Model):
         (MEMBERSHIP_GOLD,'Gold'),
     ]
     
-    firs_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phoneNumber = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
     membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
     
+
+ 
 
 class Order(models.Model):
     #order never be deleted cause they represent our sales.
@@ -68,7 +70,7 @@ class Addres(models.Model): #Addres is the child of customer
     street= models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE) #if a delete a custmer the addres will be deleted too.
-
+    zip_code = models.CharField(max_length=255, default="-")
 class Cart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
